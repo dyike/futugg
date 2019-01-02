@@ -11,7 +11,6 @@ import (
 
 func init() {
 	futugg.SetHandlerId(uint32(3001), "Qot_Sub")
-	fmt.Println("112222")
 	var err error
 	err = futugg.On("send.Qot_Sub", QotSubSend)
 	err = futugg.On("recv.Qot_Sub", QotSubRecv)

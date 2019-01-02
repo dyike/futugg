@@ -10,7 +10,6 @@ import (
 
 func init() {
 	futugg.SetHandlerId(uint32(1002), "GetGlobalState")
-	fmt.Println("112222")
 	var err error
 	err = futugg.On("send.GetGlobalState", GetGlobalStateSend)
 	err = futugg.On("recv.GetGlobalState", GetGlobalStateRecv)
