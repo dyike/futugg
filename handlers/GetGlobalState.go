@@ -5,6 +5,7 @@ import (
 	"futugg"
 	"futugg/pb/GetGlobalState"
 
+	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -43,14 +44,14 @@ func GetGlobalStateSend(conn *futugg.FutuGG) error {
 }
 
 // GetGlobalStateRecv handler
-func GetGlobalStateRecv(data []byte) error {
+func GetGlobalStateRecv(data []byte) (string, error) {
 	resp := &GetGlobalState.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return fmt.Errorf("marshal error: %s", err)
+		return "", fmt.Errorf("marshal error: %s", err)
 	}
 
-	fmt.Println(resp)
-
-	return nil
+	m := jsonpb.Marshaler{}
+	result, err := m.MarshalToString(resp)
+	return result, nil
 }

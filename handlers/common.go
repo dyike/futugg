@@ -14,13 +14,13 @@ func transStockCode(code string) *Qot_Common.Security {
 
 	switch codes[0] {
 	case "HK":
-		*stock.Marked = int32(1)
+		*stock.Market = int32(1)
 	case "US":
-		*stock.Marked = int32(11)
+		*stock.Market = int32(11)
 	case "SH":
-		*stock.Marked = int32(21)
+		*stock.Market = int32(21)
 	case "SZ":
-		*stock.Marked = int32(22)
+		*stock.Market = int32(22)
 	}
 
 	*stock.Code = codes[1]

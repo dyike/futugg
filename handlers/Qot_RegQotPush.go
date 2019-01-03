@@ -13,13 +13,13 @@ func init() {
 	futugg.SetHandlerId(uint32(3002), "Qot_RegQotPush")
 	var err error
 	err = futugg.On("send.Qot_RegQotPush", QotRegQotPushSend)
-	err = futugg.On("recv.Qot_RegQotPush", QotReqQotPushRecv)
+	err = futugg.On("recv.Qot_RegQotPush", QotRegQotPushRecv)
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 
-func QotRegQotPushSend(conn *futugg.FutuGG, stockCode string, isRegOrUnReg bool, isFirstPush bool) error {
+func QotRegQotPushSend(conn *futugg.FutuGG, stockCode string, subType string, isRegOrUnReg bool, isFirstPush bool) error {
 	pack := &futugg.FutuPack{}
 	pack.SetProto(uint32(3002))
 
@@ -29,13 +29,14 @@ func QotRegQotPushSend(conn *futugg.FutuGG, stockCode string, isRegOrUnReg bool,
 
 	var subTypeList []int32
 	subTypeNum := transSubType(subType)
+	subTypeList = append(subTypeList, subTypeNum)
 
 	var regPushRehabTypeList []int32
 	regPushRehabType := int32(1)
 	regPushRehabTypeList = append(regPushRehabTypeList, regPushRehabType)
 
-	reqData := &Qot_ReqQotPush.Request{
-		C2S: &Qot_ReqQotPush.C2S{
+	reqData := &Qot_RegQotPush.Request{
+		C2S: &Qot_RegQotPush.C2S{
 			SecurityList:  securityList,
 			SubTypeList:   subTypeList,
 			IsRegOrUnReg:  &isRegOrUnReg,

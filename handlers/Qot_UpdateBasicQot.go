@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	// "encoding/json"
 	"fmt"
 	"futugg"
 	"futugg/pb/Qot_UpdateBasicQot"
@@ -22,9 +23,8 @@ func QotUpdateBasicQotRecv(data []byte) error {
 	resp := &Qot_UpdateBasicQot.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return fmt.Error("marshal error: %s", err)
+		return fmt.Errorf("marshal error: %s", err)
 	}
 
-	fmt.Println(resp)
 	return nil
 }

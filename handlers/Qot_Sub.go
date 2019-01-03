@@ -29,6 +29,7 @@ func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUn
 
 	var subTypeList []int32
 	subTypeNum := transSubType(subType)
+	subTypeList = append(subTypeList, subTypeNum)
 
 	var regPushRehabTypeList []int32
 	regPushRehabType := int32(1)

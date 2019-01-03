@@ -23,7 +23,7 @@ func NotifyRecv(data []byte) error {
 	resp := &Notify.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return fmt.Error("marshal error: %s", err)
+		return fmt.Errorf("marshal error: %s", err)
 	}
 
 	return nil

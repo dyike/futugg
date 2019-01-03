@@ -22,6 +22,6 @@ func main() {
 		cli.Recv()
 	}()
 
-	fmt.Println("vvvvvv")
+	futugg.Cmd("send.Qot_GetSubInfo", cli, true)
 	<-block
 }
