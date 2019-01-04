@@ -12,7 +12,7 @@ func init() {
     futugg.SetHandlerId(uint32(3007), "Qot_UpdateKL")
 
     var err error
-    err = futugg.On("recv.Qot_UpdateKL", QotUpdateBasicQotRecv)
+    err = futugg.On("recv.Qot_UpdateKL", QotUpdateKLRecv)
     if err != nil {
         fmt.Println(err)
     }
