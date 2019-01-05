@@ -11,15 +11,15 @@ import (
 func init() {
     futugg.SetHandlerId(uint32(2102), "Trd_GetPositionList")
     var err error
-    err = futugg.On("send.Trd_GetPositionList", Trd_GetPositionListSend)
-    err = futugg.On("recv.Trd_GetPositionList", Trd_GetPositionListRecv)
+    err = futugg.On("send.Trd_GetPositionList", TrdGetPositionListSend)
+    err = futugg.On("recv.Trd_GetPositionList", TrdGetPositionListRecv)
     if err != nil {
         fmt.Println(err)
     }
 }
 
 // TODO add TrdFilterConditions
-func Trd_GetPositionListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket int32, ) error {
+func TrdGetPositionListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket int32, ) error {
     pack := &futugg.FutuPack{}
     pack.SetProto(uint32(2102))
 
@@ -40,7 +40,7 @@ func Trd_GetPositionListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, tr
     return err
 }
 
-func Trd_GetPositionListRecv(data []byte) error {
+func TrdGetPositionListRecv(data []byte) error {
     resp := &Trd_GetPositionList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
