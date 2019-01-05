@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-    futugg.SetHandlerId(uint32(2201), "Trd_PlaceOrder")
+    futugg.SetHandlerId(uint32(2202), "Trd_PlaceOrder")
     var err error
     err = futugg.On("send.Trd_PlaceOrder", TrdPlaceOrderSend)
     err = futugg.On("recv.Trd_PlaceOrder", TrdPlaceOrderRecv)
@@ -22,7 +22,7 @@ func init() {
 // TODO add TrdFilterConditions
 func TrdPlaceOrderSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket int32, trdSide int32, orderType int32, code string, qty float64) error {
     pack := &futugg.FutuPack{}
-    pack.SetProto(uint32(2201))
+    pack.SetProto(uint32(2202))
 
     packetId := &Common.PacketID{
         ConnID: new(uint64),
