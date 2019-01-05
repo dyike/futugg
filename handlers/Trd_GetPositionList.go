@@ -19,7 +19,7 @@ func init() {
 }
 
 // TODO add TrdFilterConditions
-func TrdGetPositionListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket int32, ) error {
+func TrdGetPositionListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket int32) error {
     pack := &futugg.FutuPack{}
     pack.SetProto(uint32(2102))
 
