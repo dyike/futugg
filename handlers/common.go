@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"futugg/pb/Qot_Common"
+	"futugg/pb/Trd_Common"
 	"strings"
 	"strconv"
 )
@@ -37,6 +38,19 @@ func transAccIDs(accIds string) []uint64 {
 		}
 	}
 	return accIDList
+}
+
+
+func setTrdHeader(trdEnv int32, accID uint64, trdMarket int32) *Trd_Common.TrdHeader {
+	trdHeader := &Trd_Common.TrdHeader{
+		TrdEnv: new(int32),
+		AccID:  new(uint64),
+		TrdMarket: new(int32),
+	}
+	*trdHeader.TrdEnv = trdEnv
+	*trdHeader.AccID = accID
+	*trdHeader.TrdMarket = trdMarket
+	return trdHeader
 }
 
 func transSubType(subType string) int32 {
