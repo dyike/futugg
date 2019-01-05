@@ -3,6 +3,7 @@ package handlers
 import (
 	"futugg/pb/Qot_Common"
 	"strings"
+	"strconv"
 )
 
 func transStockCode(code string) *Qot_Common.Security {
@@ -25,6 +26,17 @@ func transStockCode(code string) *Qot_Common.Security {
 
 	*stock.Code = codes[1]
 	return stock
+}
+
+func transAccIDs(accIds string) []uint64 {
+	accIdsArr := strings.Split(accIds, ",")
+	var accIDList []uint64
+	for _, id := range accIdsArr {
+		if s, err := strconv.ParseUint(id, 10, 64); err == nil {
+			accIDList = append(accIDList, s)
+		}
+	}
+	return accIDList
 }
 
 func transSubType(subType string) int32 {
