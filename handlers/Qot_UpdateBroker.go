@@ -9,7 +9,7 @@ import (
 )
 
 func init() {
-    futugg.SetHandlerId(uint32(3009), "Qot_UpdateBroker")
+    futugg.SetHandlerId(uint32(3015), "Qot_UpdateBroker")
 
     var err error
     err = futugg.On("recv.Qot_UpdateBroker", QotUpdateBrokerRecv)
