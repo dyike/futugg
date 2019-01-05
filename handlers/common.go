@@ -40,6 +40,11 @@ func transAccIDs(accIds string) []uint64 {
 	return accIDList
 }
 
+func setTrdFilterConditions() *Trd_Common.TrdFilterConditions {
+	trdFilterConditions := &Trd_Common.TrdFilterConditions{
+	}
+	return trdFilterConditions
+}
 
 func setTrdHeader(trdEnv int32, accID uint64, trdMarket int32) *Trd_Common.TrdHeader {
 	trdHeader := &Trd_Common.TrdHeader{
