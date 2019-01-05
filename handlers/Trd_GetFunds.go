@@ -12,7 +12,7 @@ func init() {
     futugg.SetHandlerId(uint32(2101), "Trd_GetFunds")
     var err error
     err = futugg.On("send.Trd_GetFunds", TrdGetFundsSend)
-    err = futugg.On("recv.Trd_GetFunds", TrdGetFundsSRecv)
+    err = futugg.On("recv.Trd_GetFunds", TrdGetFundsRecv)
     if err != nil {
         fmt.Println(err)
     }
@@ -39,7 +39,7 @@ func TrdGetFundsSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket 
     return err
 }
 
-func TrdGetFundsSRecv(data []byte) error {
+func TrdGetFundsRecv(data []byte) error {
     resp := &Trd_GetFunds.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
