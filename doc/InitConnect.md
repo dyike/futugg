@@ -1,5 +1,7 @@
 ## InitConnect
 
+初始化连接，请求中所有的协议必须等InitConnect协议先完成，在futugg.go文件中可以看到initConnect()的实现。
+
 ### Request参数
 
 参数名  | 类型  | 是否必须 | 说明      | 示例
@@ -26,3 +28,6 @@ recvNotify | bool | 否 | 此连接是否接收市场状态、交易需要重新
 
 ```
 
+如果配置了加密，则需要使用`connAESKey`作为协议加密key。
+
+`keepAliveInterval`为建议client发起的心跳KeepAlive间隔。SDK中已经实现默认为3s发一次KeepAlive的请求。
