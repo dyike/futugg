@@ -55,7 +55,7 @@ func main() {
 ProtoId | 名称 | 说明
 ------- | ---- | ----------
 1001    | [InitConnect](https://github.com/dyike/futugg/blob/master/doc/InitConnect.md)   |       初始化连接
-1002    | GetGlobalState    |    获取全局状态
+1002    | [GetGlobalState](https://github.com/dyike/futugg/blob/master/doc/GetGlobalState.md)    |    获取全局状态
 1003    | Notify    |    系统通知推送
 1004    | KeepAlive    | 保活心跳
 2001    | Trd_GetAccList    |    获取业务账户列表
