@@ -2,6 +2,10 @@
 
 FutuGG是基于FutuOpenD网关实现的Golang的SDK包，项目中使用了原生了proto文件，注意不要更改生成的go文件，修改了import路径。
 
+### 特别声明
+
+因为futugg是跟金钱打交道的，可能你会用来做交易。如果在使用过程中触发了某个bug，导致金钱损失，一切后果请自行承担！！！
+
 ### 环境依赖
 
 * 安装Google的protobuf，protoc-gen-go工具
