@@ -22,6 +22,9 @@ func main() {
 		cli.Recv()
 	}()
 
+	// futugg.Cmd("send.Qot_Sub", cli, "US.BILI", "Basic", true, false, true)
+	// futugg.Cmd("send.Qot_RegQotPush", cli, "US.BILI", "Basic", true, false)
 	futugg.Cmd("send.Qot_GetSubInfo", cli, true)
+
 	<-block
 }
