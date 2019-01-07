@@ -79,7 +79,7 @@ ProtoId | 名称 | 说明
 3001    | [Qot_Sub](https://github.com/dyike/futugg/blob/master/doc/Qot_Sub.md)      |   订阅或者反订阅
 3002    | [Qot_RegQotPush](https://github.com/dyike/futugg/blob/master/doc/Qot_RegQotPush.md)    |    注册推送
 3003    | [Qot_GetSubInfo](https://github.com/dyike/futugg/blob/master/doc/Qot_GetSubInfo.md)     |    获取订阅信息
-3004    | Qot_GetBasicQot    |   获取股票基本行情
+3004    | [Qot_GetBasicQot](https://github.com/dyike/futugg/blob/master/doc/Qot_GetBasicQot.md)    |   获取股票基本行情
 3005    | Qot_UpdateBasicQot    |    推送股票基本行情
 3006    | Qot_GetKL    | 获取K线
 3007    | Qot_UpdateKL    |  推送K线
