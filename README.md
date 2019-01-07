@@ -76,7 +76,7 @@ ProtoId | 名称 | 说明
 2218    | Trd_UpdateOrderFill    |   推送成交通知
 2221    | Trd_GetHistoryOrderList    |   获取历史订单列表
 2222    | Trd_GetHistoryOrderFillList    |   获取历史成交列表
-3001    | Qot_Sub    |   订阅或者反订阅
+3001    | [Qot_Sub](https://github.com/dyike/futugg/blob/master/doc/Qot_Sub.md)      |   订阅或者反订阅
 3002    | Qot_RegQotPush    |    注册推送
 3003    | Qot_GetSubInfo    |    获取订阅信息
 3004    | Qot_GetBasicQot    |   获取股票基本行情
