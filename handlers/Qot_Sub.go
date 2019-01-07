@@ -25,10 +25,12 @@ func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUn
 	pack.SetProto(uint32(3001))
 
 	var securityList []*Qot_Common.Security
+	// TODO Add array stockCode
 	security := transStockCode(stockCode)
 	securityList = append(securityList, security)
 
 	var subTypeList []int32
+	// TODO Add array subType
 	subTypeNum := transSubType(subType)
 	subTypeList = append(subTypeList, subTypeNum)
 
