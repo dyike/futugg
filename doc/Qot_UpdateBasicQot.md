@@ -5,8 +5,8 @@
 ### 示例
 
 ```go
-futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "Basic", true, true, false)
-futugg.Cmd("recv.Qot_UpdateBasicQot", cli)
+futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "Basic", true, true, "None", false)
+futugg.Cmd("recv.Qot_UpdateBasicQot", cli, "HK.01810")
 ```
 
 ### Request参数
