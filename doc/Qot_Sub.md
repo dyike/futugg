@@ -5,7 +5,7 @@
 ### 示例
 
 ```go
-futugg.Cmd("send.Qot_Sub", cli, "US.BILI", "Basic", true, false, true)
+futugg.Cmd("send.Qot_Sub", cli, "US.BILI", "Basic", true, false, "None", true)
 ```
 
 ### Request参数
@@ -16,6 +16,7 @@ stockCode | string | 是 | 股票名称，固定风格 [港股/美股].[股票�
 subType | string | 是 | 订阅数据类型 | None/Basic，只需要SubType_前缀后面的内容
 isSubOrUnSub | bool | 是 | ture表示订阅,false表示反订阅 | true
 isRegOrUnRegPush | bool | 否 | 注册或反注册该连接上面行情的推送 | 默认false，不做注册反注册操作
+regPushRehab | string | 否 | 复权类型,注册推送并且是K线类型才生效,其他订阅类型忽略该参数,注册K线推送时该参数不指定默认前复权 | None
 isFirstPush | bool | 否 | 注册后如果本地已有数据是否首推一次已存在数据 | 默认 true 
 
 

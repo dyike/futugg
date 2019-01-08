@@ -20,7 +20,7 @@ func init() {
 	}
 }
 
-func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUnSub bool, isRegOrUnRegPush bool, isFirstPush bool) error {
+func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUnSub bool, isRegOrUnRegPush bool, regPushRehab string, isFirstPush bool) error {
 	pack := &futugg.FutuPack{}
 	pack.SetProto(uint32(3001))
 
@@ -35,7 +35,7 @@ func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUn
 	subTypeList = append(subTypeList, subTypeNum)
 
 	var regPushRehabTypeList []int32
-	regPushRehabType := int32(1)
+	regPushRehabType := transRehabType(regPushRehab)
 	regPushRehabTypeList = append(regPushRehabTypeList, regPushRehabType)
 
 	reqData := &Qot_Sub.Request{

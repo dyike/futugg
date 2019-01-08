@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_UpdateKL"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -25,5 +26,9 @@ func QotUpdateKLRecv(data []byte) error {
         return fmt.Errorf("marshal error: %s", err)
     }
 
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    fmt.Println(result)
+
+    return err
 }

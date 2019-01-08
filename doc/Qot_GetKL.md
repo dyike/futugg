@@ -5,7 +5,7 @@
 ### 示例
 
 ```go
-futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "KL_1Min", true, true, false)
+futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "KL_1Min", true, true, "None", false)
 futugg.Cmd("send.Qot_GetKL", cli, "None", "1Min", "HK.01810", 1)
 ```
 
