@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_GetRT"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -47,7 +48,8 @@ func QotGetRTRecv(data []byte) error {
         return fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    fmt.Println(result)
+    return err
 }
