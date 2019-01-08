@@ -23,7 +23,7 @@ func QotUpdateKLRecv(data []byte) error {
     resp := &Qot_UpdateKL.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return err
     }
 
     m := jsonpb.Marshaler{}
