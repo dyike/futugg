@@ -81,7 +81,7 @@ ProtoId | 名称 | 说明
 3003    | [Qot_GetSubInfo](https://github.com/dyike/futugg/blob/master/doc/Qot_GetSubInfo.md)     |    获取订阅信息
 3004    | [Qot_GetBasicQot](https://github.com/dyike/futugg/blob/master/doc/Qot_GetBasicQot.md)    |   获取股票基本行情
 3005    | [Qot_UpdateBasicQot](https://github.com/dyike/futugg/blob/master/doc/Qot_UpdateBasicQot.md)      |    推送股票基本行情
-3006    | Qot_GetKL    | 获取K线
+3006    | [Qot_GetKL](https://github.com/dyike/futugg/blob/master/doc/Qot_GetKL.md)      | 获取K线
 3007    | Qot_UpdateKL    |  推送K线
 3008    | Qot_GetRT    | 获取分时
 3009    | Qot_UpdateRT    |  推送分时

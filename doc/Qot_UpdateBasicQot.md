@@ -5,6 +5,7 @@
 ### 示例
 
 ```go
+futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "Basic", true, true, false)
 futugg.Cmd("recv.Qot_UpdateBasicQot", cli)
 ```
 

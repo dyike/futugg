@@ -5,6 +5,7 @@ import (
 	"futugg/pb/Trd_Common"
 	"strings"
 	"strconv"
+	"fmt"
 )
 
 func transStockCode(code string) *Qot_Common.Security {
@@ -65,4 +66,23 @@ func transSubType(subType string) int32 {
 	}
 
 	return int32(0)
+}
+
+func transRehabType(rehabType string) int32 {
+	k := "RehabType_" + strings.Title(rehabType)
+	fmt.Println(k)
+	if v, ok := Qot_Common.RehabType_value[k]; ok {
+		return int32(v)
+	}
+	return int32(0)
+}
+
+
+func transKLType(KLType string) int32 {
+	k := "KLType_" + strings.Title(KLType)
+	if v, ok := Qot_Common.KLType_value[k]; ok {
+		return v
+	}
+	// default KLType_Day = 2
+	return int32(2)
 }

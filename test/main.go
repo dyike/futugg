@@ -22,10 +22,11 @@ func main() {
 		cli.Recv()
 	}()
 
-	futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "Basic", true, true, false)
+	futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "KL_1Min", true, true, false)
 	// futugg.Cmd("send.Qot_RegQotPush", cli, "US.BILI", "Basic", true, false)
 	// futugg.Cmd("send.Qot_GetSubInfo", cli, true)
-	futugg.Cmd("recv.Qot_UpdateBasicQot", cli, "HK.01810")
+	// futugg.Cmd("recv.Qot_UpdateBasicQot", cli, "HK.01810")
+	futugg.Cmd("send.Qot_GetKL", cli, "None", "1Min", "HK.01810", int32(1))
 
 	<-block
 }

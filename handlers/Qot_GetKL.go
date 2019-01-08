@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_GetKL"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -20,10 +21,13 @@ func init() {
 }
 
 // TODO KLine setting
-func QotGetKLSend(conn *futugg.FutuGG, rehabType int32, klType int32, stockCode string, reqNum int32) error {
+func QotGetKLSend(conn *futugg.FutuGG, rehab string, kl string, stockCode string, reqNum int32) error {
     pack := &futugg.FutuPack{}
     pack.SetProto(uint32(3006))
 
+    rehabType := transRehabType(rehab)
+    klType := transKLType(kl)
+    fmt.Println("rehabType", rehabType)
     security := transStockCode(stockCode)
 
     reqData := &Qot_GetKL.Request{
@@ -52,6 +56,10 @@ func QotGetKLRecv(data []byte) error {
         return fmt.Errorf("marshal error: %s", err)
     }
 
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    fmt.Println(result)
+
+    return err
 }
 
