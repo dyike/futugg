@@ -29,7 +29,9 @@ func main() {
 	// futugg.Cmd("send.Qot_GetKL", cli, "None", "1Min", "HK.01810", int32(1))
 	// futugg.Cmd("recv.Qot_UpdateKL", cli, "HK.01810")
 	// futugg.Cmd("send.Qot_GetRT", cli, "HK.01810")
-	futugg.Cmd("recv.Qot_UpdateRT", cli, "HK.01810")
+	// futugg.Cmd("recv.Qot_UpdateRT", cli, "HK.01810")
+
+
 
 	<-block
 }
