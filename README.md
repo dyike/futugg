@@ -99,7 +99,7 @@ ProtoId | 名称 | 说明
 3200    | [Qot_GetTradeDate](https://github.com/dyike/futugg/blob/master/doc/Qot_GetTradeDate.md)    |  获取市场交易日
 3202    | [Qot_GetStaticInfo](https://github.com/dyike/futugg/blob/master/doc/Qot_GetStaticInfo.md)    | 获取股票静态信息
 ~~3203~~| ~~Qot_GetSecuritySnapshot~~   |   ~~获取股票快照~~
-3204    | Qot_GetPlateSet(https://github.com/dyike/futugg/blob/master/doc/Qot_GetPlateSet.md)     |   获取板块集合下的板块
+3204    | [Qot_GetPlateSet](https://github.com/dyike/futugg/blob/master/doc/Qot_GetPlateSet.md)     |   获取板块集合下的板块
 3205    | Qot_GetPlateSecurity    |  获取板块下的股票
 3206    | Qot_GetReference    |  获取正股相关股票
 3207    | Qot_GetOwnerPlate    | 获取股票所属板块
