@@ -90,7 +90,7 @@ ProtoId | 名称 | 说明
 3011    | Qot_UpdateTicker    |  推送逐笔
 3012    | [Qot_GetOrderBook](https://github.com/dyike/futugg/blob/master/doc/Qot_GetOrderBook.md)    |  获取买卖盘
 3013    | Qot_UpdateOrderBook    |   推送买卖盘
-3014    | Qot_GetBroker    | 获取经纪队列
+3014    | [Qot_GetBroker](https://github.com/dyike/futugg/blob/master/doc/Qot_GetBroker.md)     | 获取经纪队列
 3015    | Qot_UpdateBroker    |  推送经纪队列
 ~~3100~~| ~~Qot_GetHistoryKL~~|  ~~从本地下载历史数据获取单只股票一段历史K线~~
 ~~3101~~| ~~Qot_GetHistoryKLPoints~~|    ~~从本地下载历史数据获取多只股票多点历史K线~~
