@@ -38,7 +38,8 @@ func main() {
 
     futugg.Cmd("send.Qot_GetSubInfo", cli, true)
     // 3001 Qot_Sub
-    futugg.Cmd("send.Qot_Sub", cli, "SZ.300104", "Ticker", true, false, false)
+    futugg.Cmd("send.Qot_Sub", cli, "SZ.300104", "Basic", true, false, "None", false)
+
     <-block
 }
 
