@@ -6,7 +6,7 @@
 
 ```go
 futugg.Cmd("send.Qot_Sub", cli, "HK.01810", "Ticker", true, true, "None", false)
-futugg.Cmd("send.Qot_GetTicker", cli, "HK.01810"， int32(2))
+futugg.Cmd("send.Qot_GetTicker", cli, "HK.01810", int32(2))
 ```
 
 ### Request参数
