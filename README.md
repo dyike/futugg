@@ -95,7 +95,7 @@ ProtoId | 名称 | 说明
 ~~3100~~| ~~Qot_GetHistoryKL~~|  ~~从本地下载历史数据获取单只股票一段历史K线~~
 ~~3101~~| ~~Qot_GetHistoryKLPoints~~|    ~~从本地下载历史数据获取多只股票多点历史K线~~
 ~~3102~~| ~~Qot_GetRehab~~    |  ~~从本地下载历史数据获取复权信息~~
-3103    | Qot_RequestHistoryKL    |  在线获取单只股票一段历史K线
+3103    | [Qot_RequestHistoryKL](https://github.com/dyike/futugg/blob/master/doc/Qot_RequestHistoryKL.md)    |  在线获取单只股票一段历史K线
 3200    | Qot_GetTradeDate    |  获取市场交易日
 3202    | Qot_GetStaticInfo    | 获取股票静态信息
 3203    | Qot_GetSecuritySnapshot    |   获取股票快照

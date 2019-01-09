@@ -27,7 +27,6 @@ func QotGetKLSend(conn *futugg.FutuGG, rehab string, kl string, stockCode string
 
     rehabType := transRehabType(rehab)
     klType := transKLType(kl)
-    fmt.Println("rehabType", rehabType)
     security := transStockCode(stockCode)
 
     reqData := &Qot_GetKL.Request{

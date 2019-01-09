@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_RequestHistoryKL"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -18,10 +19,12 @@ func init() {
     }
 }
 
-func QotRequestHistoryKLSend(conn *futugg.FutuGG, rehabType int32, klType int32, stockCode string, beginTime string, endTime string) error {
+func QotRequestHistoryKLSend(conn *futugg.FutuGG, rehab string, kl string, stockCode string, beginTime string, endTime string) error {
     pack := &futugg.FutuPack{}
     pack.SetProto(uint32(3103))
 
+    rehabType := transRehabType(rehab)
+    klType := transKLType(kl)
     security := transStockCode(stockCode)
 
     reqData := &Qot_RequestHistoryKL.Request{
@@ -51,7 +54,9 @@ func QotRequestHistoryKLRecv(data []byte) error {
         return fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    fmt.Println(result)
 
-    return nil
+    return err
 }
