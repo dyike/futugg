@@ -87,7 +87,7 @@ ProtoId | 名称 | 说明
 3009    | [Qot_UpdateRT](https://github.com/dyike/futugg/blob/master/doc/Qot_UpdateRT.md)    |  推送分时
 3010    | [Qot_GetTicker](https://github.com/dyike/futugg/blob/master/doc/Qot_GetTicker.md)    | 获取逐笔
 3011    | Qot_UpdateTicker    |  推送逐笔
-3012    | Qot_GetOrderBook    |  获取买卖盘
+3012    | [Qot_GetOrderBook](https://github.com/dyike/futugg/blob/master/doc/Qot_GetOrderBook.md)    |  获取买卖盘
 3013    | Qot_UpdateOrderBook    |   推送买卖盘
 3014    | Qot_GetBroker    | 获取经纪队列
 3015    | Qot_UpdateBroker    |  推送经纪队列
