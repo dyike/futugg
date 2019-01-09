@@ -1,4 +1,4 @@
-## FutuGG 
+## FutuGG
 
 FutuGG是基于FutuOpenD网关实现的Golang的SDK包，项目中使用了原生了proto文件，注意不要更改生成的go文件，修改了import路径。
 
@@ -91,9 +91,9 @@ ProtoId | 名称 | 说明
 3013    | Qot_UpdateOrderBook    |   推送买卖盘
 3014    | Qot_GetBroker    | 获取经纪队列
 3015    | Qot_UpdateBroker    |  推送经纪队列
-3100    | Qot_GetHistoryKL    |  从本地下载历史数据获取单只股票一段历史K线
-3101    | Qot_GetHistoryKLPoints    |    从本地下载历史数据获取多只股票多点历史K线
-3102    | Qot_GetRehab    |  从本地下载历史数据获取复权信息
+~~3100~~| ~~Qot_GetHistoryKL~~|  ~~从本地下载历史数据获取单只股票一段历史K线~~
+~~3101~~| ~~Qot_GetHistoryKLPoints~~|    ~~从本地下载历史数据获取多只股票多点历史K线~~
+~~3102~~| ~~Qot_GetRehab~~    |  ~~从本地下载历史数据获取复权信息~~
 3103    | Qot_RequestHistoryKL    |  在线获取单只股票一段历史K线
 3200    | Qot_GetTradeDate    |  获取市场交易日
 3202    | Qot_GetStaticInfo    | 获取股票静态信息
