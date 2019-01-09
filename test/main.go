@@ -34,7 +34,8 @@ func main() {
 	// futugg.Cmd("send.Qot_GetOrderBook", cli, "HK.01810", int32(2))
 	// futugg.Cmd("send.Qot_GetBroker", cli, "HK.01810")
 	// futugg.Cmd("send.Qot_RequestHistoryKL", cli, "None", "1Min", "HK.01810", "2019-01-09 16:00:00", "2019-01-09 16:05:00")
-	futugg.Cmd("send.Qot_GetTradeDate", cli, int32(1), "2019-01-08 16:00:00", "2019-01-09 16:00:00")
+	// futugg.Cmd("send.Qot_GetTradeDate", cli, int32(1), "2019-01-08 16:00:00", "2019-01-09 16:00:00")
+	futugg.Cmd("send.Qot_GetStaticInfo", cli, int32(1), int32(3), "HK.01810")
 
 	<-block
 }
