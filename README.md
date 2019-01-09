@@ -85,7 +85,7 @@ ProtoId | 名称 | 说明
 3007    | [Qot_UpdateKL](https://github.com/dyike/futugg/blob/master/doc/Qot_UpdateKL.md)     |  推送K线
 3008    | [Qot_GetRT](https://github.com/dyike/futugg/blob/master/doc/Qot_GetRT.md)    | 获取分时
 3009    | [Qot_UpdateRT](https://github.com/dyike/futugg/blob/master/doc/Qot_UpdateRT.md)    |  推送分时
-3010    | Qot_GetTicker    | 获取逐笔
+3010    | [Qot_GetTicker](https://github.com/dyike/futugg/blob/master/doc/Qot_GetTicker.md)    | 获取逐笔
 3011    | Qot_UpdateTicker    |  推送逐笔
 3012    | Qot_GetOrderBook    |  获取买卖盘
 3013    | Qot_UpdateOrderBook    |   推送买卖盘
