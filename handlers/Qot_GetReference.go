@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_GetReference"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -41,14 +42,14 @@ func QotGetReferenceSend(conn *futugg.FutuGG, stockCode string, referenceType in
     return err
 }
 
-func QotGetReferenceRecv(data []byte) error {
+func QotGetReferenceRecv(data []byte) (string, error) {
     resp := &Qot_GetReference.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

@@ -40,16 +40,14 @@ func QotGetPlateSetSend(conn *futugg.FutuGG, marketNum int32, plateSetType int32
     return err
 }
 
-func QotGetPlateSetRecv(data []byte) error {
+func QotGetPlateSetRecv(data []byte) (string, error) {
     resp := &Qot_GetPlateSet.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

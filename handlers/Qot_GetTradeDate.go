@@ -42,16 +42,14 @@ func QotGetTradeDateSend(conn *futugg.FutuGG, marketNum int32, beginTime string,
     return err
 }
 
-func QotGetTradeDateRecv(data []byte) error {
+func QotGetTradeDateRecv(data []byte) (string, error) {
     resp := &Qot_GetTradeDate.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

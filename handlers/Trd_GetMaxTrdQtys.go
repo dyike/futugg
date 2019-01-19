@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_GetMaxTrdQtys"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -43,14 +44,14 @@ func TrdGetMaxTrdQtysSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMa
     return err
 }
 
-func TrdGetMaxTrdQtysRecv(data []byte) error {
+func TrdGetMaxTrdQtysRecv(data []byte) (string, error) {
     resp := &Trd_GetMaxTrdQtys.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

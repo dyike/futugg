@@ -47,16 +47,14 @@ func QotRequestHistoryKLSend(conn *futugg.FutuGG, rehab string, kl string, stock
     return err
 }
 
-func QotRequestHistoryKLRecv(data []byte) error {
+func QotRequestHistoryKLRecv(data []byte) (string, error) {
     resp := &Qot_RequestHistoryKL.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

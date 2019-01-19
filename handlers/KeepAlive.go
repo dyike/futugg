@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
+	"github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -44,12 +45,14 @@ func KeepAliveSend(conn *futugg.FutuGG) error {
 	return err
 }
 
-func KeepAliveRecv(data []byte) error {
+func KeepAliveRecv(data []byte) (string, error) {
 	resp := &KeepAlive.Response{}
-
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return fmt.Errorf("marshal error: %s", err)
+		return "", fmt.Errorf("marshal error: %s", err)
 	}
-	return nil
+
+	m := jsonpb.Marshaler{}
+	result, err := m.MarshalToString(resp)
+	return result, nil
 }

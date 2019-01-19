@@ -38,12 +38,12 @@ func (e *event) On(name string, fn interface{}) error {
 		return errors.New("fn is not a function")
 	}
 
-	// if t.NumOut() != 1 {
-	// 	return errors.New("fn must have one return value")
-	// }
-	// if t.Out(0) != reflect.TypeOf((*error)(nil)).Elem() {
-	// 	return errors.New("fn must return an error message")
-	// }
+	if t.NumOut() != 2 {
+		return errors.New("fn must have two return value")
+	}
+	if t.Out(1) != reflect.TypeOf((*error)(nil)).Elem() {
+		return errors.New("fn must return an error message")
+	}
 
 	if f, ok := e.events[name]; ok {
 		tt := reflect.TypeOf(f)

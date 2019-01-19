@@ -20,16 +20,14 @@ func init() {
 	}
 }
 
-func QotUpdateBasicQotRecv(data []byte) error {
+func QotUpdateBasicQotRecv(data []byte) (string, error) {
 	resp := &Qot_UpdateBasicQot.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return fmt.Errorf("marshal error: %s", err)
-	}
+        return "", fmt.Errorf("marshal error: %s", err)
+    }
 
-	m := jsonpb.Marshaler{}
-	result, err := m.MarshalToString(resp)
-	fmt.Println(result)
-
-	return err
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

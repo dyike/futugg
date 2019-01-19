@@ -63,7 +63,6 @@ func main() {
 
 使用前，需要启动富途网关OpenD，具体操作详见[futu-api-doc介绍](https://futunnopen.github.io/futu-api-doc/intro/FutuOpenDGuide.html)
 
-支持同步和异步两种模式
 
 
 ### 广告

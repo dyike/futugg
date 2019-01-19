@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_GetAccList"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -38,14 +39,14 @@ func TrdGetAccListSend(conn *futugg.FutuGG, userId uint64) error {
     return err
 }
 
-func TrdGetAccListRecv(data []byte) error {
+func TrdGetAccListRecv(data []byte) (string, error) {
     resp := &Trd_GetAccList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

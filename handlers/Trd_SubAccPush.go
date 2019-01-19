@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_SubAccPush"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -39,14 +40,14 @@ func TrdSubAccPushSend(conn *futugg.FutuGG, accIDs string) error {
     return err
 }
 
-func TrdSubAccPushRecv(data []byte) error {
+func TrdSubAccPushRecv(data []byte) (string, error) {
     resp := &Trd_SubAccPush.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

@@ -46,16 +46,14 @@ func QotGetStaticInfoSend(conn *futugg.FutuGG, marketNum int32, secType int32, s
     return err
 }
 
-func QotGetStaticInfoRecv(data []byte) error {
+func QotGetStaticInfoRecv(data []byte) (string, error) {
     resp := &Qot_GetStaticInfo.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

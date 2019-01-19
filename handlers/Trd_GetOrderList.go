@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_GetOrderList"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -41,14 +42,14 @@ func TrdGetOrderListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMar
     return err
 }
 
-func TrdGetOrderListRecv(data []byte) error {
+func TrdGetOrderListRecv(data []byte) (string, error) {
     resp := &Trd_GetOrderList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

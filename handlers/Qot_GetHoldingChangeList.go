@@ -6,6 +6,7 @@ import (
     "futugg/pb/Qot_GetHoldingChangeList"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -42,14 +43,14 @@ func QotGetHoldingChangeListSend(conn *futugg.FutuGG, stockCode string, holderCa
     return err
 }
 
-func QotGetHoldingChangeListRecv(data []byte) error {
+func QotGetHoldingChangeListRecv(data []byte) (string, error) {
     resp := &Qot_GetHoldingChangeList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

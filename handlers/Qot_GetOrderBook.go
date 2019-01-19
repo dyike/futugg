@@ -42,16 +42,14 @@ func QotGetOrderBookSend(conn *futugg.FutuGG, stockCode string, num int32) error
     return err
 }
 
-func QotGetOrderBookRecv(data []byte) error {
+func QotGetOrderBookRecv(data []byte) (string, error) {
     resp := &Qot_GetOrderBook.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

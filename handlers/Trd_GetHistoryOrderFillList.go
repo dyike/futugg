@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_GetHistoryOrderFillList"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -42,14 +43,14 @@ func TrdGetHistoryOrderFillListSend(conn *futugg.FutuGG, trdEnv int32, accID uin
     return err
 }
 
-func TrdGetHistoryOrderFillListRecv(data []byte) error {
+func TrdGetHistoryOrderFillListRecv(data []byte) (string, error) {
     resp := &Trd_GetHistoryOrderFillList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

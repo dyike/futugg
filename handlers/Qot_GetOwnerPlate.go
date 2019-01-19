@@ -7,6 +7,7 @@ import (
     "futugg/pb/Qot_GetOwnerPlate"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -43,14 +44,14 @@ func QotGetOwnerPlateSend(conn *futugg.FutuGG, stockCode string) error {
     return err
 }
 
-func QotGetOwnerPlateRecv(data []byte) error {
+func QotGetOwnerPlateRecv(data []byte) (string, error) {
     resp := &Qot_GetOwnerPlate.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

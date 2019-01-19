@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_UpdateOrderFill"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -18,14 +19,14 @@ func init() {
 }
 
 
-func TrdUpdateOrderFillRecv(data []byte) error {
+func TrdUpdateOrderFillRecv(data []byte) (string, error) {
     resp := &Trd_UpdateOrderFill.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }

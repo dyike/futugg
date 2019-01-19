@@ -41,16 +41,14 @@ func QotGetBrokerSend(conn *futugg.FutuGG, stockCode string) error {
     return err
 }
 
-func QotGetBrokerRecv(data []byte) error {
+func QotGetBrokerRecv(data []byte) (string, error) {
     resp := &Qot_GetBroker.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    fmt.Println(result)
-
-    return err
+    return result, err
 }

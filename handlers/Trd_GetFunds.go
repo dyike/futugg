@@ -6,6 +6,7 @@ import (
     "futugg/pb/Trd_GetFunds"
 
     "github.com/golang/protobuf/proto"
+    "github.com/golang/protobuf/jsonpb"
 )
 
 func init() {
@@ -39,14 +40,14 @@ func TrdGetFundsSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarket 
     return err
 }
 
-func TrdGetFundsRecv(data []byte) error {
+func TrdGetFundsRecv(data []byte) (string, error) {
     resp := &Trd_GetFunds.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return fmt.Errorf("marshal error: %s", err)
+        return "", fmt.Errorf("marshal error: %s", err)
     }
 
-    fmt.Println(resp)
-
-    return nil
+    m := jsonpb.Marshaler{}
+    result, err := m.MarshalToString(resp)
+    return result, err
 }
