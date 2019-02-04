@@ -39,14 +39,15 @@ func QotGetSubInfoSend(conn *futugg.FutuGG, isReqAllConn bool) error {
 	return err
 }
 
-func QotGetSubInfoRecv(data []byte) (string, error) {
+func QotGetSubInfoRecv(data []byte) error {
 	resp := &Qot_GetSubInfo.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

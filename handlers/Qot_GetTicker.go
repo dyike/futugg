@@ -42,14 +42,15 @@ func QotGetTickerSend(conn *futugg.FutuGG, stockCode string, maxRetNum int32) er
     return err
 }
 
-func QotGetTickerRecv(data []byte) (string, error) {
+func QotGetTickerRecv(data []byte) error {
     resp := &Qot_GetTicker.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

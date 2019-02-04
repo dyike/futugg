@@ -54,14 +54,15 @@ func TrdPlaceOrderSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMarke
     return err
 }
 
-func TrdPlaceOrderRecv(data []byte) (string, error) {
+func TrdPlaceOrderRecv(data []byte) error {
     resp := &Trd_PlaceOrder.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

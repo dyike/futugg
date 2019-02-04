@@ -45,14 +45,15 @@ func KeepAliveSend(conn *futugg.FutuGG) error {
 	return err
 }
 
-func KeepAliveRecv(data []byte) (string, error) {
+func KeepAliveRecv(data []byte) error {
 	resp := &KeepAlive.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return "", fmt.Errorf("marshal error: %s", err)
+		return fmt.Errorf("marshal error: %s", err)
 	}
 
 	m := jsonpb.Marshaler{}
 	result, err := m.MarshalToString(resp)
-	return result, nil
+	fmt.Println(result)
+    return err
 }

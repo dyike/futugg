@@ -44,14 +44,15 @@ func TrdGetMaxTrdQtysSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMa
     return err
 }
 
-func TrdGetMaxTrdQtysRecv(data []byte) (string, error) {
+func TrdGetMaxTrdQtysRecv(data []byte) error {
     resp := &Trd_GetMaxTrdQtys.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

@@ -56,14 +56,15 @@ func QotRegQotPushSend(conn *futugg.FutuGG, stockCode string, subType string, is
 	return err
 }
 
-func QotRegQotPushRecv(data []byte) (string, error) {
+func QotRegQotPushRecv(data []byte) error {
 	resp := &Qot_RegQotPush.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

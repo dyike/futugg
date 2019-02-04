@@ -48,15 +48,16 @@ func QotGetKLSend(conn *futugg.FutuGG, rehab string, kl string, stockCode string
     return err
 }
 
-func QotGetKLRecv(data []byte) (string, error) {
+func QotGetKLRecv(data []byte) error {
     resp := &Qot_GetKL.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }
 

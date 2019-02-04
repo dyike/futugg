@@ -59,14 +59,15 @@ func QotSubSend(conn *futugg.FutuGG, stockCode string, subType string, isSubOrUn
 	return err
 }
 
-func QotSubRecv(data []byte) (string, error) {
+func QotSubRecv(data []byte) error {
 	resp := &Qot_Sub.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

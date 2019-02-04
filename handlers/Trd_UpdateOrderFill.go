@@ -19,14 +19,15 @@ func init() {
 }
 
 
-func TrdUpdateOrderFillRecv(data []byte) (string, error) {
+func TrdUpdateOrderFillRecv(data []byte) error {
     resp := &Trd_UpdateOrderFill.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

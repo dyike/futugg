@@ -40,14 +40,15 @@ func TrdSubAccPushSend(conn *futugg.FutuGG, accIDs string) error {
     return err
 }
 
-func TrdSubAccPushRecv(data []byte) (string, error) {
+func TrdSubAccPushRecv(data []byte) error {
     resp := &Trd_SubAccPush.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

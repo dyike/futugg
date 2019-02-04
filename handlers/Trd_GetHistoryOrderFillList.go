@@ -43,14 +43,15 @@ func TrdGetHistoryOrderFillListSend(conn *futugg.FutuGG, trdEnv int32, accID uin
     return err
 }
 
-func TrdGetHistoryOrderFillListRecv(data []byte) (string, error) {
+func TrdGetHistoryOrderFillListRecv(data []byte) error {
     resp := &Trd_GetHistoryOrderFillList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

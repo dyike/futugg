@@ -42,14 +42,15 @@ func TrdGetOrderListSend(conn *futugg.FutuGG, trdEnv int32, accID uint64, trdMar
     return err
 }
 
-func TrdGetOrderListRecv(data []byte) (string, error) {
+func TrdGetOrderListRecv(data []byte) error {
     resp := &Trd_GetOrderList.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

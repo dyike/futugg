@@ -44,14 +44,15 @@ func GetGlobalStateSend(conn *futugg.FutuGG) error {
 }
 
 // GetGlobalStateRecv handler
-func GetGlobalStateRecv(data []byte) (string, error) {
+func GetGlobalStateRecv(data []byte) error {
 	resp := &GetGlobalState.Response{}
 	err := proto.Unmarshal(data, resp)
 	if err != nil {
-		return "", fmt.Errorf("marshal error: %s", err)
+		return fmt.Errorf("marshal error: %s", err)
 	}
 
 	m := jsonpb.Marshaler{}
 	result, err := m.MarshalToString(resp)
-	return result, nil
+	fmt.Println(result)
+    return err
 }

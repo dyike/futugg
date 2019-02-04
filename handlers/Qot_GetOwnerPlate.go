@@ -44,14 +44,15 @@ func QotGetOwnerPlateSend(conn *futugg.FutuGG, stockCode string) error {
     return err
 }
 
-func QotGetOwnerPlateRecv(data []byte) (string, error) {
+func QotGetOwnerPlateRecv(data []byte) error {
     resp := &Qot_GetOwnerPlate.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }

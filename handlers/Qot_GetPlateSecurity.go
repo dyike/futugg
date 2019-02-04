@@ -41,14 +41,15 @@ func QotGetPlateSecuritySend(conn *futugg.FutuGG, stockCode string) error {
     return err
 }
 
-func QotGetPlateSecurityRecv(data []byte) (string, error) {
+func QotGetPlateSecurityRecv(data []byte) error {
     resp := &Qot_GetPlateSecurity.Response{}
     err := proto.Unmarshal(data, resp)
     if err != nil {
-        return "", fmt.Errorf("marshal error: %s", err)
+        return fmt.Errorf("marshal error: %s", err)
     }
 
     m := jsonpb.Marshaler{}
     result, err := m.MarshalToString(resp)
-    return result, err
+    fmt.Println(result)
+    return err
 }
